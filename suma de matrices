@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main() {
+	int i,j;
+	int tamfil,tamcol,tamcol2,tamfil2,resta1=0;
+	srand(time(NULL));
+	printf("Que tamanio quieres tu matriz en filas?");
+	scanf("%d",&tamfil);
+	printf("Que tamanio quieres tu matriz en columnas?");
+	scanf("%d",&tamcol);
+	int mat1[tamfil][tamcol],mat2[tamfil][tamcol],result[tamfil][tamcol],cont=0,cont2=0,cont3=0;
+	//Llenado aleatoriamente la matriz
+	for(i=0;i<tamfil;i++){
+		for(j=0;j<tamcol;j++){
+			mat1[i][j]=rand()%51;
+		}
+	}
+	printf("Numero aleatorios mat 1\n");
+	for(i=0;i<tamfil;i++){
+		for(j=0;j<tamcol;j++){
+	printf("[%d]",mat1[i][j]);
+	cont=cont+1;
+		}
+	if(cont==tamcol){
+	printf("\n");
+	cont=0;
+		}
+	}
+	printf("\n Numero aleatorios mat 2\n");
+	for(i=0;i<tamfil;i++){
+		for(j=0;j<tamcol;j++){
+			mat2[i][j]=rand()%51;
+		}
+	}
+	for(i=0;i<tamfil;i++){
+		for(j=0;j<tamcol;j++){
+	printf("[%d]",mat2[i][j]);
+	cont2=cont2+1;
+		}
+	if(cont2==tamfil){
+		printf("\n");
+		cont2=0;
+		}
+	}
+	
+	//Suma de las dos matrices
+	printf("\nSuma de matrices\n");
+		for(i=0;i<tamfil;i++){
+			for(j=0;j<tamcol;j++){
+			result[i][j]=mat1[i][j]+mat2[i][j];
+			}
+		}
+		for(i=0;i<tamfil;i++){
+			for(j=0;j<tamcol;j++){
+				printf("[%d]",result[i][j]);
+				cont3=cont3+1;
+			}
+			if(cont3==tamfil){
+				printf("\n");
+				cont3=0;
+			}	
+		}
+		//resta 
+		int s=0;
+		int c=1;
+		printf("\nResta diagonal\n");
+	for(i=0;i<tamfil;i++){
+		for(j=0;j<tamcol;j++){
+			if(i==j){
+				
+					
+			}else
+				s=s+result[i][j];
+		}
+	}
+	for(i=0;i<tamfil;i++){			
+		if(c<tamfil){
+			resta1=result[i][i]-result[i+1][i+1];
+			c=c+1;
+		}
+	}	
+		printf("La resta de la diagonal es: %d",resta1);
+		printf("\nLa suma de todo menos la diagonal es: %d",s);
+	return 0;
+}
